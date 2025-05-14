@@ -49,6 +49,10 @@ describe('Restaurant and Menu Models', () => {
 
     test('can delete Restaurants', async () => {
         // TODO - write test
+        const restaurant = await Restaurant.create(seedRestaurant[1]);
+        await restaurant.destroy();
+        const found = await Restaurant.findByPk(restaurant.id);
+        expect(found).toBeNull();
 
     });
 })
